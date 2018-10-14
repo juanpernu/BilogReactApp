@@ -17,11 +17,14 @@ const config = {
 	module: {
 		rules: [
       {
-			  test: /\.(js|jsx)$/,
-				loaders: [
-          'babel-loader',
-        ],
-        exclude: /node_modules/,
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
       {
 				test: /\.(css|sass)$/,
