@@ -1,5 +1,5 @@
 import React from 'react';
-import { obtenerPermisos } from '../../../../Api'
+import { obtenerPermisos } from '../../../../api'
 
 export default class PersonList extends React.Component {
   constructor(props, context) {
