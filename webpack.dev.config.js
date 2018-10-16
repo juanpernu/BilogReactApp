@@ -3,6 +3,7 @@ var path = require('path');
 var parentDir = path.join(__dirname, './');
 
 const config = {
+  mode: 'development',
   entry: [
 		path.join(parentDir, 'index.js')
   ],

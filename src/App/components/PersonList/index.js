@@ -4,37 +4,51 @@ import axios from 'axios';
 export default class PersonList extends React.Component {
   constructor(props, context) {
     super(props, context);
-
-    this.state = {
-      name: '',
-    };
-  }
-
-  handleChange(event) {
-    this.setState({ name: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
-    const user = {
-      name: this.state.name
+    let logInData = {
+      "access": {
+        "web_user": 'demo',
+        "user": 'demo',
+        "pass": 'demo'
+      }
+    }
+    
+    const axiosConfig = {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      url: 'http://bilogweb.com.ar/WebService.asmx/ObtenerPermisos',
     };
 
-    axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
+    logInData = '"input": "{"access":{"web_user":"demo","user":"demo","pass":"demo"}}"';
+
+    console.log(logInData);
+    
+
+    // Send a POST request
+    axios({
+      method: 'POST',
+      url: "http://bilogweb.com.ar/WebService.asmx/ObtenerPermisos",
+      data: {
+        input: {},
+      },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Person Name:
-          <input type="text" name="name" onChange={this.handleChange} />
-        </label>
         <button type="submit">Add</button>
       </form>
     )
