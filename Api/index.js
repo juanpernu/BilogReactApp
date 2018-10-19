@@ -1,21 +1,21 @@
-import axios from 'axios';
+const qs = require('qs');
+const axios = require('axios');
 import Config from "./configs";
 
-export function obtenerPermisos(logInData) {
-  // Send a POST request
-  axios({
-    method: 'POST',
-    url: `${Config.baseBilogURL}/ObtenerPermisos`,
-    data: logInData,
-    params: {
-      "input": logInData,
-    },
-    headers: Config.headers,
+export function obtenerPermisos() {
+
+  const bodyRequest = {input: '{"access":{"web_user":"demo","user":"demo","pass":"demo"}}'};
+
+  axios.post(`${Config.baseBilogURL}/ObtenerPermisos`, qs.stringify(bodyRequest), {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
+  .then((res) => {
+    // Do somthing
+    let data = res.data.split('>');
+    data = data[2].replace(/([</]+)\w+/, '');
+    data = JSON.parse(data)
+    console.log(data.response);
   })
-  .then(function (response) {
-    console.log(response);
+  .catch((err) => {
+    // Do somthing
   })
-  .catch(function (error) {
-    console.log(error);
-  });
+
 }
