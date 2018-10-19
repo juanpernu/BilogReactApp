@@ -2,9 +2,7 @@ const qs = require('qs');
 const axios = require('axios');
 import Config from "./configs";
 
-export function obtenerPermisos() {
-
-  const bodyRequest = {input: '{"access":{"web_user":"demo","user":"demo","pass":"demo"}}'};
+export function obtenerPermisos(bodyRequest) {
 
   axios.post(`${Config.baseBilogURL}/ObtenerPermisos`, qs.stringify(bodyRequest), {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
   .then((res) => {

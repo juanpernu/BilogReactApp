@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-import PersonList from './components/PersonList'
+import React from 'react';
+import View from './View'
+import './styles.scss'
 
 
-export default class App extends Component {
+export default class App extends React.Component {
     render () {
-        return <PersonList />
+        return <View />
     }
 }
