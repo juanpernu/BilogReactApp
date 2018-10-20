@@ -6,7 +6,7 @@ export function obtenerPermisos(bodyRequest) {
 
   axios.post(`${Config.baseBilogURL}/ObtenerPermisos`, qs.stringify(bodyRequest), {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
   .then((res) => {
-    // Do somthing
+    // Use Fast-xml-parser here
     let data = res.data.split('>');
     data = data[2].replace(/([</]+)\w+/, '');
     data = JSON.parse(data)
