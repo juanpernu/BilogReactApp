@@ -1,6 +1,9 @@
-const Config = {
-  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  baseBilogURL: 'http://bilogweb.com.ar/WebService.asmx',
-};
+const axios = require('axios');
 
-export default Config;
+var instance = axios.create({
+  baseURL: 'http://170.78.75.70',
+  timeout: 1000,
+  headers: {'Content-Type': 'application/json; charset=utf-8'}
+});
+
+export default instance;

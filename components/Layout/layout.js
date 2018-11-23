@@ -1,5 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
+import Footer from '../Footer/footer'
+import Menu from '../Menu/menu'
 
 // **
 // import styles
@@ -16,7 +18,11 @@ const Layout = ({children}) => (
       <link href='/static/fonts/index.css' rel='stylesheet' />
       <title>Bilog Soluciones Informáticas</title>
     </Head>
-    {children}
+    <Menu />
+    <main>
+      {children}
+    </main>
+    <Footer />
   </div>
 )
 

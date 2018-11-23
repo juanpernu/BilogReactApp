@@ -4,7 +4,7 @@
   "description": "Bilog react App",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node ssr-server.js",
     "build": "next build",
     "start": "next start"
   },
@@ -23,6 +23,8 @@
   "homepage": "https://github.com/juanpernu/BilogReactApp#readme",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "axios": "0.18.0",
+    "express": "4.16.4",
     "next": "^7.0.2",
     "node-sass": "^4.9.4",
     "react": "^16.6.0",
