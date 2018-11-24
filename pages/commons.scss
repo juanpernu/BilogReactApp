@@ -13,3 +13,8 @@ body {
   font-family: "Proxima Nova",-apple-system,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif,sans-serif;
   background-color: #fff;
 }
+
+.root.agenda main {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}

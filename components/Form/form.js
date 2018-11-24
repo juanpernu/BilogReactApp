@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { obtenerPaciente } from '../../api'
 
 // **
 // import styles
@@ -13,6 +14,7 @@ export default class Form extends React.Component {
       user: ''
     }
     this.handleUserChange = this.handleUserChange.bind(this)
+    this.handleObtenerPaciente = this.handleObtenerPaciente.bind(this)
   }
 
   handleUserChange(evt) {
@@ -20,6 +22,12 @@ export default class Form extends React.Component {
     this.setState({
       user: evt.target.value
     })
+  }
+
+  handleObtenerPaciente(evt) {
+    evt.preventDefault()
+    const pacienteData = obtenerPaciente()
+    console.log(pacienteData)
   }
 
   render() {
@@ -53,11 +61,11 @@ export default class Form extends React.Component {
             value={this.state.user}
             onChange={this.handleUserChange}
           />
-          <button className="button" type="submit">
+          <button className="button" type="submit" onClick={this.handleObtenerPaciente}>
             <span>Continuar</span>
           </button>
         </form>
-          <p className='sign-up'><Link href='https://www.mercadolibre.com.ar'>¿Todavía no sos miembro? Registrate acá</Link></p>
+          <p className='sign-up'><Link href='https://www.mercadolibre.com.ar'><a>¿Todavía no sos miembro? Registrate acá</a></Link></p>
       </div>
     )
   }

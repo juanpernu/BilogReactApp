@@ -6,21 +6,18 @@ import Link from 'next/link'
 // **
 import "./menu.scss"
 
-export default class Menu extends React.Component {
+const Menu = () => (
+  <header className='menu'>
+    <nav>
+      <div className='menu-container'>
+        <ul>
+          <li><Link href='https://www.mercadolibre.com.ar'><a>Inicio</a></Link></li>
+          <li><Link href='https://www.mercadolibre.com.ar'><a>Sobre nosotros</a></Link></li>
+          <li><Link href='https://www.mercadolibre.com.ar'><a>Contacto</a></Link></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+)
 
-  render() {
-    return (
-      <header className='menu'>
-        <nav>
-          <div className='menu-container'>
-            <ul>
-              <li><Link href='https://www.mercadolibre.com.ar'>Inicio</Link></li>
-              <li><Link href='https://www.mercadolibre.com.ar'>Sobre nosotros</Link></li>
-              <li><Link href='https://www.mercadolibre.com.ar'>Contacto</Link></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-    )
-  }
-}
+export default Menu

@@ -1,0 +1,120 @@
+.sidebar {
+  background-color: #fff;
+  padding: 30px;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+
+  h2 {
+    margin: 30px 0 15px;
+    padding: 0;
+    font-size: 1.8rem;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  h2,
+  p,
+  .date {
+    max-width: 400px;
+  }
+
+  .logo {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+
+  .date {
+    margin: 60px 43px 0;
+    display: inline-block;
+
+    .date-day {
+      margin: 15px 0;
+      padding: 0;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .date-day-number {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 100;
+      color: #0050c8;
+    }
+  }
+
+  .date-nav {
+    position: relative;
+    bottom: 31px;
+
+    button {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+    }
+
+    .date-prev,
+    .date-next {
+      background: transparent;
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      color: inherit;
+      border: none;
+      padding: 0!important;
+      font: inherit;
+      position: relative;
+
+      &:after,
+      &:before {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 1px;
+        background: #141c3a;
+        position: absolute;
+      }
+    }
+
+    .date-prev {
+
+      &:after,
+      &:before {
+        left: 0;
+      }
+
+      &:before {
+        transform: rotate(-45deg);
+        margin: -7px 11px 0;
+      }
+
+      &:after {
+        transform: rotate(45deg);
+        margin: 4px 11px -1px;
+      }
+    }
+
+    .date-next {
+      left: 200px;
+
+      &:after,
+      &:before {
+        left: 0;
+      }
+
+      &:before {
+        transform: rotate(45deg);
+        margin: -7px 11px 0;
+      }
+
+      &:after {
+        transform: rotate(-45deg);
+        margin: 4px 11px -11px;
+      }
+    }
+  }
+}

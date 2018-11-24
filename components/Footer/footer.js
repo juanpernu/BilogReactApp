@@ -6,27 +6,24 @@ import Link from 'next/link'
 // **
 import "./footer.scss"
 
-export default class Footer extends React.Component {
+const Footer = () => (
+  <footer className='footer'>
+    <div className='footer-container'>
+      <div>
+        Logo
+      </div>
+      <div>
+        <ul>
+          <li><Link href='https://www.mercadolibre.com.ar'><a>Inicio</a></Link></li>
+          <li><Link href='https://www.mercadolibre.com.ar'><a>Sobre nosotros</a></Link></li>
+          <li><Link href='https://www.mercadolibre.com.ar'><a>Contacto</a></Link></li>
+        </ul>
+      </div>
+      <div>
+        Redes
+      </div>
+    </div>
+  </footer>
+)
 
-  render() {
-    return (
-      <footer className='footer'>
-        <div className='footer-container'>
-          <div>
-            Logo
-          </div>
-          <div>
-            <ul>
-              <li><Link href='https://www.mercadolibre.com.ar'>Inicio</Link></li>
-              <li><Link href='https://www.mercadolibre.com.ar'>Sobre nosotros</Link></li>
-              <li><Link href='https://www.mercadolibre.com.ar'>Contacto</Link></li>
-            </ul>
-          </div>
-          <div>
-            Redes
-          </div>
-        </div>
-      </footer>
-    )
-  }
-}
+export default Footer

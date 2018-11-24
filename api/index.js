@@ -1,29 +1,26 @@
+const axios = require('axios');
 const qs = require('qs');
-import Instance from "./configs";
+import instance from "./configs";
 
-export function obtenerPermisos(bodyRequest) {
+var bodyRequest = 
+  {
+    "Acceso":
+  {
+        "WebUser": "demo",
+      "User": "demo",
+      "Password": "demo"
+    },
+  "Paciente":
+    {
+        "IdPaciente": 140
+    }
+  }
 
-  Instance.post(`${Instance.baseURL}/ObtenerPermisos`, qs.stringify(bodyRequest), {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
+export function obtenerPaciente() {
+
+  instance.post('/ObtenerPaciente', bodyRequest)
   .then((res) => {
-    // Use Fast-xml-parser here
-    let data = res.data.split('>');
-    data = data[2].replace(/([</]+)\w+/, '');
-    data = JSON.parse(data)
-    console.log(data.response);
-  })
-  .catch((err) => {
-    // Do somthing
-  })
-
-}
-
-export function testInstance() {
-
-  Instance.get(`http://170.78.75.70/`)
-  .then((res) => {
-    // Use Fast-xml-parser here
-    let data = res.data;
-    console.log(data);
+    res.send()
   })
   .catch((err) => {
     // Do somthing

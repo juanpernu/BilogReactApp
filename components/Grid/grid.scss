@@ -1,0 +1,59 @@
+.grid {
+  background-color: rgb(242, 246, 249);
+
+  .grid-row {
+    display: grid;
+    grid-template-columns: 10% 30% 5% auto;
+    align-items: center;
+    height: 80px;
+    background-color: #edf2f5;
+    border-bottom: 1px solid #e9eaea;
+    padding: 20px 30px;
+
+    .presentism {
+      width: 60px;
+      padding: 5px 10px;
+      text-align: center;
+      color: #fff;
+      border-radius: 5px;
+
+      &.pre {
+        background-color: #39B752;
+      }
+
+      &.cancel {
+        background-color: #E2E4E7;
+        color: #141c3a;
+      }
+
+      &.atend {
+        background-color: #39B752;
+      }
+
+      &.aus-ca {
+        background-color: #0097F0;
+      }
+
+      &.aus-sa {
+        background-color: #FB452A;
+      }
+    }
+
+    .obervations {
+      display: grid;
+      grid-template-rows: 50% 50%;
+      margin-left: 60px;
+
+      .obervations-title {
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      .obervations-description {
+        font-size: 16px;
+        color: #626ea0;
+        font-weight: 100;
+      }
+    }
+  }
+}

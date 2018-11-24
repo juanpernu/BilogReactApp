@@ -1,14 +1,9 @@
 import React from 'react'
-import Layout from '../components/Layout/layout'
-import Form from '../components/Form/form'
-import { testInstance } from '../api'
-
+import Login from './login'
 import "./commons.scss"
 
 const Page = () => (
-  <Layout>
-    <Form />
-  </Layout>
+  <Login />
 )
 
 export default Page

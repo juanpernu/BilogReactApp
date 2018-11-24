@@ -1,15 +1,13 @@
 import React from 'react'
 import Head from 'next/head'
-import Footer from '../Footer/footer'
-import Menu from '../Menu/menu'
 
 // **
 // import styles
 // **
 import "./layout.scss"
 
-const Layout = ({children}) => (
-  <div className="root">
+const Layout = ({children, customClass }) => (
+  <div className={`root ${customClass ? customClass : ''}`}>
     <Head>
       <meta charSet='utf-8' />
       <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
@@ -18,11 +16,9 @@ const Layout = ({children}) => (
       <link href='/static/fonts/index.css' rel='stylesheet' />
       <title>Bilog Soluciones Informáticas</title>
     </Head>
-    <Menu />
     <main>
       {children}
     </main>
-    <Footer />
   </div>
 )
 
