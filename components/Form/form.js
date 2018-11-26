@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import nookies from 'nookies'
 import { obtenerPaciente } from '../../services/pacienteService'
 
 // **
@@ -13,12 +14,17 @@ class Form extends React.Component {
     this.state = {
         bilogUser: '',
         user: '',
-        password: ''
+        password: '',
+        ctx: ''
     }
     this.handleUserChange = this.handleUserChange.bind(this)
     this.handleBilogUserChange = this.handleBilogUserChange.bind(this)
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  storeLoginData() {
+    
   }
 
   handleBilogUserChange(evt) {
@@ -42,9 +48,7 @@ class Form extends React.Component {
     })
   }
 
-  handleSubmit(evt) {
-    evt.preventDefault()
-    
+  handleSubmit(evt, ctx) {
     const userLoginData = {
       "Acceso": {
         "WebUser": this.state.bilogUser,
@@ -55,11 +59,17 @@ class Form extends React.Component {
           "IdPaciente": 140
       }
     }
+
+    nookies.set(ctx, 'WebUser', this.state.bilogUser)
+    nookies.set(ctx, 'User', this.state.user)
+    nookies.set(ctx, 'Password', this.state.password)
     
     obtenerPaciente(userLoginData)
     .then(res => {
       console.log(res)
     })
+
+    evt.preventDefault()
   }
 
   render() {
@@ -103,4 +113,4 @@ class Form extends React.Component {
   }
 }
 
-export default withCookies(Form)
+export default Form
