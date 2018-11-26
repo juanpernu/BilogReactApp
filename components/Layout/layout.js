@@ -13,7 +13,6 @@ const Layout = ({children, customClass }) => (
       <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       <meta name='description' content='Seguí el estado de los proyectos de Ley.' />
-      <link href='/static/fonts/index.css' rel='stylesheet' />
       <title>Bilog Soluciones Informáticas</title>
     </Head>
     <main>

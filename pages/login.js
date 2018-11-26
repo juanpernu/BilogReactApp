@@ -7,7 +7,7 @@ import Menu from '../components/Menu/menu'
 const Login = () => (
   <Layout>
     <Menu />
-    <Form />
+      <Form />
     <Footer />
   </Layout>
 )
