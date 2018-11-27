@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-import nookies from 'nookies'
-import { obtenerPaciente } from '../../services/pacienteService'
+import Router from 'next/router'
+import AuthService from '../../services/authService'
+
+const auth = new AuthService('http://localhost:3000')
 
 // **
 // import styles
@@ -14,8 +16,7 @@ class Form extends React.Component {
     this.state = {
         bilogUser: '',
         user: '',
-        password: '',
-        ctx: ''
+        password: ''
     }
     this.handleUserChange = this.handleUserChange.bind(this)
     this.handleBilogUserChange = this.handleBilogUserChange.bind(this)
@@ -23,9 +24,11 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  storeLoginData() {
-    
-  }
+  // componentDidMount (ctx) {
+  //     if (auth.loggedIn(ctx)) {
+  //       Router.push('/agenda')   // redirect if you're already logged in
+  //     }
+  // }
 
   handleBilogUserChange(evt) {
     // console.log(evt.target.value);
@@ -48,28 +51,20 @@ class Form extends React.Component {
     })
   }
 
-  handleSubmit(evt, ctx) {
-    const userLoginData = {
-      "Acceso": {
-        "WebUser": this.state.bilogUser,
-        "User": this.state.user,
-        "Password": this.state.password
-      },
-      "Paciente": {
-          "IdPaciente": 140
-      }
-    }
-
-    nookies.set(ctx, 'WebUser', this.state.bilogUser)
-    nookies.set(ctx, 'User', this.state.user)
-    nookies.set(ctx, 'Password', this.state.password)
-    
-    obtenerPaciente(userLoginData)
-    .then(res => {
-      console.log(res)
-    })
-
+  async handleSubmit(evt, ctx) {
     evt.preventDefault()
+
+    await auth.login(
+      ctx,
+      this.state.bilogUser,
+      this.state.user,
+      this.state.password
+      )
+      .then(res => {
+        console.log(res)
+        // this.props.url.replaceTo('/admin')
+      })
+      .catch(e => console.log(e))  // you would show/hide error messages with component state here 
   }
 
   render() {
