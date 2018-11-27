@@ -24,28 +24,33 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  // componentDidMount (ctx) {
-  //     if (auth.loggedIn(ctx)) {
-  //       Router.push('/agenda')   // redirect if you're already logged in
-  //     }
-  // }
+  componentDidMount (ctx) {
+    auth.logout(ctx)
+    console.log(auth.getLoginData(ctx))
+    /**
+     * @todo crear un helper para chequear que el objeto de la cookie no está vacio 
+     */
+    // if (auth.loggedIn(ctx) && !'{}') {
+    //   console.log('logeado')
+    //   Router.push('/agenda')   // redirect if you're already logged in
+    // } else {
+    //   console.log('deslogeado')
+    // }
+  }
 
   handleBilogUserChange(evt) {
-    // console.log(evt.target.value);
     this.setState({
       bilogUser: evt.target.value
     })
   }
 
   handleUserChange(evt) {
-    // console.log(evt.target.value);
     this.setState({
       user: evt.target.value
     })
   }
 
   handlePasswordChange(evt) {
-    // console.log(evt.target.value);
     this.setState({
       password: evt.target.value
     })

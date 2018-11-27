@@ -1,5 +1,5 @@
 import nookies from 'nookies'
-import { obtenerPaciente } from './pacienteService'
+import { obtenerPermisos } from './permisosService'
 
 export default class AuthService {
   constructor(domain) {
@@ -22,13 +22,10 @@ export default class AuthService {
         "WebUser": bilogUser,
         "User": user,
         "Password": password
-      },
-      "Paciente": {
-        "IdPaciente": 140
       }
     }
     
-    return obtenerPaciente(userLoginData)
+    return obtenerPermisos(userLoginData)
     .then(res => {
       this.setLoginData(ctx, bilogUser, user, password)
       return Promise.resolve(res)
@@ -45,7 +42,7 @@ export default class AuthService {
     // Checks if there is a saved login cookie
     const token = this.getLoginData(ctx)
     console.log(token)
-    // return !!token
+    return token
   }
 
   /**
@@ -67,11 +64,11 @@ export default class AuthService {
    * @param ctx ctx param is only used to set Next JS context
    * @returns { *|String.<T> }
    */
-  getLoginData(ctx, bilogUser, user, password){
+  getLoginData(ctx){
     // Retrieves the user login data from cookies
-    return nookies.get(ctx, 'WebUser', bilogUser),
-           nookies.get(ctx, 'User', user),
-           nookies.get(ctx, 'Password', password)
+    return nookies.get(ctx, 'WebUser'),
+           nookies.get(ctx, 'User'),
+           nookies.get(ctx, 'Password')
   }
 
   /**
@@ -80,8 +77,8 @@ export default class AuthService {
    */
   logout(ctx){
     // Clear user login data from cookies
-    nookies.destroyCookie(ctx, 'WebUser');
-    nookies.destroyCookie(ctx, 'User');
-    nookies.destroyCookie(ctx, 'Password');
+    nookies.destroy(ctx, 'WebUser');
+    nookies.destroy(ctx, 'User');
+    nookies.destroy(ctx, 'Password');
   }
 }
