@@ -20,6 +20,10 @@
   "bugs": {
     "url": "https://github.com/juanpernu/BilogReactApp/issues"
   },
+  "engines": {
+    "node": "10.2.1",
+    "npm": "6.4.1"
+  },
   "homepage": "https://github.com/juanpernu/BilogReactApp#readme",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",

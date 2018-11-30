@@ -6,8 +6,8 @@ import Menu from '../components/Menu/menu'
 
 const Login = () => (
   <Layout>
-    <Menu />
-      <Form />
+    <Menu menuContext='login' />
+    <Form />
     <Footer />
   </Layout>
 )

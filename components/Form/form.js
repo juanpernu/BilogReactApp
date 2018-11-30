@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Router from 'next/router'
 import AuthService from '../../services/authService'
+import permisosService from '../../services/permisosService'
 
 const auth = new AuthService('http://localhost:3000')
 
@@ -22,22 +23,22 @@ class Form extends React.Component {
     this.handleBilogUserChange = this.handleBilogUserChange.bind(this)
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleOnKeyDown = this.handleOnKeyDown.bind(this)
   }
 
-  componentDidMount (ctx) {
-    auth.logout(ctx)
-    const hasCookies = auth.getLoginData(ctx)
+  // componentDidMount (ctx) {
+  //   const hasCookies = auth.getLoginData(ctx)
 
-    /**
-     * @todo crear un helper para chequear que el objeto de la cookie no está vacio 
-     */
-    if (hasCookies && JSON.stringify(hasCookies) !== '{}') {
-      console.log('logeado')
-      Router.push('/agenda')   // redirect if you're already logged in
-    } else {
-      console.log('deslogeado')
-    }
-  }
+  //   /**
+  //    * @todo crear un helper para chequear que el objeto de la cookie no está vacio 
+  //    */
+  //   if (hasCookies && JSON.stringify(hasCookies) !== '{}') {
+  //     console.log('logeado')
+  //     Router.push('/agenda')   // redirect if you're already logged in
+  //   } else {
+  //     console.log('deslogeado')
+  //   }
+  // }
 
   handleBilogUserChange(evt) {
     this.setState({
@@ -57,6 +58,12 @@ class Form extends React.Component {
     })
   }
 
+  handleOnKeyDown(){
+    if(e.keyCode == 13 && e.shiftKey == false) {
+      handleSubmit()
+    }
+  }
+
   async handleSubmit(evt, ctx) {
     evt.preventDefault()
 
@@ -67,8 +74,7 @@ class Form extends React.Component {
       this.state.password
       )
       .then(res => {
-        console.log(res)
-        // this.props.url.replaceTo('/admin')
+        permisosService.handlePermisos(res)
       })
       .catch(e => console.log(e))  // you would show/hide error messages with component state here 
   }
@@ -104,7 +110,11 @@ class Form extends React.Component {
             value={this.state.password}
             onChange={this.handlePasswordChange}
           />
-          <button className="button" type="submit">
+          <button
+            className="button"
+            type="submit"
+            onKeyDown={this.handleOnKeyDown}
+          >
             <span>Continuar</span>
           </button>
         </form>

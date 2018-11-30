@@ -1,4 +1,6 @@
-const axios = require('axios');
+import axios from 'axios'
+import Router from 'next/router'
+
 const restClient = axios.create({
   baseURL: 'http://170.78.75.70',
   headers: {
@@ -7,7 +9,7 @@ const restClient = axios.create({
   }
 });
 
-class PermisosService {
+export default class PermisosService {
   /**
    * Method for get a pacients data
    * @param userLoginData
@@ -23,6 +25,29 @@ class PermisosService {
       })
    }
 
-}
+   /**
+   * Method for get a pacients data
+   * @param userLoginData
+   * @returns { *|Promise.<T> }
+   */
+  static handlePermisos(permisos) {
+    permisos.response.usuario.listaPermisos.map((permiso) => {
+      const navigationItemSistema = permiso.idProcesoNavigation.itemSistema
+      const navigationOpcion = permiso.idProcesoNavigation.opcion
 
-module.exports = PermisosService;
+      if(
+        navigationItemSistema === 'Agenda Turnos' &&
+        navigationOpcion === 'Agenda Turnos') {
+          console.log('tiene agenda permiso')
+          return Router.push('/agenda')
+        } else if(
+          navigationItemSistema === 'Pacientes' &&
+          navigationOpcion === 'Pacientes'
+        ) {
+          console.log('tiene permiso para pacientes')
+        }
+    })
+    
+   }
+
+}

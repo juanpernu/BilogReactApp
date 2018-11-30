@@ -1,5 +1,5 @@
 import nookies from 'nookies'
-import { obtenerPermisos } from './permisosService'
+import permisosService from './permisosService'
 
 export default class AuthService {
   constructor(domain) {
@@ -24,8 +24,8 @@ export default class AuthService {
         "Password": password
       }
     }
-    
-    return obtenerPermisos(userLoginData)
+
+    return permisosService.obtenerPermisos(userLoginData)
     .then(res => {
       this.setLoginData(ctx, bilogUser, user, password)
       return Promise.resolve(res)
@@ -57,6 +57,7 @@ export default class AuthService {
     nookies.set(ctx, 'WebUser', bilogUser)
     nookies.set(ctx, 'User', user)
     nookies.set(ctx, 'Password', password)
+    console.log('cookies setted')
   }
 
   /**
@@ -80,5 +81,7 @@ export default class AuthService {
     nookies.destroy(ctx, 'WebUser');
     nookies.destroy(ctx, 'User');
     nookies.destroy(ctx, 'Password');
+
+    console.log('cookies deleted')
   }
 }
