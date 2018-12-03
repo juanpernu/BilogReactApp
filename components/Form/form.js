@@ -17,7 +17,8 @@ class Form extends React.Component {
     this.state = {
         bilogUser: '',
         user: '',
-        password: ''
+        password: '',
+        activeClass: ''
     }
     this.handleUserChange = this.handleUserChange.bind(this)
     this.handleBilogUserChange = this.handleBilogUserChange.bind(this)
@@ -58,8 +59,8 @@ class Form extends React.Component {
     })
   }
 
-  handleOnKeyDown(){
-    if(e.keyCode == 13 && e.shiftKey == false) {
+  handleOnKeyDown(evt){
+    if(evt.keyCode == 13 && evt.shiftKey == false) {
       handleSubmit()
     }
   }
@@ -74,7 +75,13 @@ class Form extends React.Component {
       this.state.password
       )
       .then(res => {
-        permisosService.handlePermisos(res)
+        if (!res === false) {
+          permisosService.handlePermisos(res)
+        } else {
+          this.setState({
+            activeClass: 'active'
+          })
+        }
       })
       .catch(e => console.log(e))  // you would show/hide error messages with component state here 
   }
@@ -110,6 +117,7 @@ class Form extends React.Component {
             value={this.state.password}
             onChange={this.handlePasswordChange}
           />
+          <span className={`err-login ${this.state.activeClass}`}>Usuario o contraseña inválidos, volvé a intentarlo</span>
           <button
             className="button"
             type="submit"

@@ -1,0 +1,31 @@
+.search-container {
+  background-color: rgb(242, 246, 249);
+
+  .search_bar-container {
+    background-color: #fff;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 18px 30px;
+    width: 70%;
+    margin: 250px auto 0;
+
+    .search_bar {
+      margin: 0;
+      padding-right: 0;
+      padding-left: 0;
+      width: 80%;
+      background: #fff;
+      border: 0;
+      font-size: 14px;
+      color: #576366;
+      display: inline-block;
+      vertical-align: super;
+      outline: none;
+    }
+
+    .search-icon {
+      margin-right: 30px;
+      width: 10%;
+    }
+  }
+}

@@ -13,6 +13,21 @@ class PacienteService {
    * @param userLoginData
    * @returns { *|Promise.<T> }
    */
+  static searchPacientes(userLoginData) {
+    return restClient
+     .post('/ObtenerPacientes', userLoginData)
+     .then(response => { return response.data })
+     .catch((e) => {
+       console.log(('Error en ObtenerPaciente ', e))
+       return e;
+     })
+  }
+
+  /**
+   * Method for get a pacients data
+   * @param userLoginData
+   * @returns { *|Promise.<T> }
+   */
    static obtenerPaciente(userLoginData) {
      return restClient
       .post('/ObtenerPaciente', userLoginData)

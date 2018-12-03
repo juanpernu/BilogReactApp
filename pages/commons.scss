@@ -14,7 +14,8 @@ body {
   background-color: #fff;
 }
 
-.agenda-container {
+.agenda-container,
+.pacientes-container {
   display: grid;
   grid-template-columns: 30% 70%;
 }

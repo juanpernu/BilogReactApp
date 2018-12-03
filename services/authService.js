@@ -28,9 +28,14 @@ export default class AuthService {
     return permisosService.obtenerPermisos(userLoginData)
     .then(res => {
       this.setLoginData(ctx, bilogUser, user, password)
-      return Promise.resolve(res)
+      console.log(res)
+
+      if (res.resultado_Ok === true) {
+        return Promise.resolve(res)
+      } else {
+        return false
+      }
     })
-    .catch(e => console.log(e))
   }
 
   /**
@@ -67,9 +72,15 @@ export default class AuthService {
    */
   getLoginData(ctx){
     // Retrieves the user login data from cookies
-    return nookies.get(ctx, 'WebUser'),
-           nookies.get(ctx, 'User'),
-           nookies.get(ctx, 'Password')
+    const userLoginData = {
+      "Acceso": {
+        "WebUser": nookies.get(ctx, 'WebUser').WebUser,
+        "User": nookies.get(ctx, 'User').User,
+        "Password": nookies.get(ctx, 'Password').Password
+      }
+    }
+
+    return userLoginData
   }
 
   /**

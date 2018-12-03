@@ -1,10 +1,16 @@
 import React from 'react'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 
 // **
 // import styles
 // **
 import "./layout.scss"
+
+const Loader = dynamic(import('../Loading/page-loader'), {
+  ssr: false,
+  loading: () => null
+})
 
 const Layout = ({children, customClass }) => (
   <div className={`root ${customClass ? customClass : ''}`}>
@@ -18,6 +24,7 @@ const Layout = ({children, customClass }) => (
     <main>
       {children}
     </main>
+    <Loader />
   </div>
 )
 

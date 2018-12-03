@@ -20,16 +20,7 @@
     z-index: 14;
     background-color: #ffffff;
     color: #15141f;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background-color: #e9eaea;
-    }
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
 
     .menu-container {
       width: 100%;
