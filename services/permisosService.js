@@ -1,12 +1,10 @@
 import axios from 'axios'
 import Router from 'next/router'
+import config from '../configs'
 
 const restClient = axios.create({
-  baseURL: 'http://170.78.75.70',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json; charset=utf-8'
-  }
+  baseURL: config.baseURL,
+  headers: config.headers
 });
 
 export default class PermisosService {

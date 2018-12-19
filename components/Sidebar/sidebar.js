@@ -1,23 +1,38 @@
 import React from 'react'
+import Calendar from 'react-calendar/dist/entry.nostyle'
+import './calendar.scss'
 
 // **
 // import styles
 // **
 import "./sidebar.scss"
 
-const Sidebar = ({ name, day}) => (
-  <div className='sidebar'>
-    <div className='date'>
-      <p className='date-day'>Viernes</p>
-      <p className='date-day-number'>05 de Octubre</p>
-    </div>
-    <div className='date-nav'>
-      <button type="button" role='presentation' className='date-prev' />
-      <button type="button" role='presentation' className='date-next' />
-    </div>
-    <h2>Bienvenido a tu agenda, Juan</h2>
-    <p>Acá vas a poder gestionar todos tus turnos.</p>
-  </div>
-)
+class Sidebar extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      date: new Date()
+    }
+    this.onChange = this.onChange.bind(this)
 
-export default Sidebar
+  }
+
+  onChange(date){
+    this.setState({ date })
+  }
+
+  render() {
+    return(
+      <div className='sidebar'>
+      <h2>Bienvenido a tu agenda, Juan</h2>
+      <p>Acá vas a poder gestionar todos tus turnos.</p>
+      <Calendar
+        onChange={this.onChange}
+        value={this.state.date}
+      />
+    </div>
+    )
+  }
+}
+
+export default Sidebar;

@@ -1,13 +1,12 @@
-const axios = require('axios');
+import axios from 'axios';
+import config from '../configs'
+
 const restClient = axios.create({
-  baseURL: 'http://170.78.75.70',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json; charset=utf-8'
-  }
+  baseURL: config.baseURL,
+  headers: config.headers
 });
 
-class PacienteService {
+export default class PacienteService {
   /**
    * Method for get a pacients data
    * @param userLoginData
@@ -39,5 +38,3 @@ class PacienteService {
    }
 
 }
-
-module.exports = PacienteService;

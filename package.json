@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/juanpernu/BilogReactApp#readme",
   "dependencies": {
+    "@zeit/next-css": "1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "axios": "0.18.0",
     "express": "4.16.4",
@@ -34,6 +35,7 @@
     "nookies": "1.1.2",
     "nprogress": "0.2.0",
     "react": "^16.6.0",
+    "react-calendar": "2.17.5",
     "react-dom": "^16.6.0"
   },
   "devDependencies": {}
