@@ -26,6 +26,9 @@
   },
   "homepage": "https://github.com/juanpernu/BilogReactApp#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "1.2.12",
+    "@fortawesome/free-solid-svg-icons": "5.6.3",
+    "@fortawesome/react-fontawesome": "0.1.3",
     "@zeit/next-css": "1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "axios": "0.18.0",

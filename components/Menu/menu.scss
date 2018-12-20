@@ -1,6 +1,6 @@
 .menu {
   position: relative;
-  height: 3.5rem;
+  height: 80px;
   z-index: 14;
   display: block;
 
@@ -20,13 +20,11 @@
     z-index: 14;
     background-color: #ffffff;
     color: #15141f;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 40px 0 rgba(16, 36, 94, 0.1);
 
     .menu-container {
       width: 100%;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
       padding-left: 6rem;
       padding-right: 6rem;
 
@@ -46,21 +44,78 @@
         }
 
         li {
-          display: flex;
           list-style-type: none;
           margin: 0;
           padding: 0;
-          align-items: center;
           padding-left: 2rem;
         }
       }
 
       .app-menu{
         width: 100%;
-        justify-content: space-between;
+
+        a {
+          text-decoration: none;
+          color: #b2b4b7;
+      
+          &:hover {
+            color: #FB452A;
+          }
+        }
+
+        .user {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          
+          &-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            .profile-pic {
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+            }
+  
+            &-loged {
+              margin: 0 30px;
+  
+              p {
+                font-size: 16px;
+                color: #b2b4b7;
+                margin: 0;
+              }
+  
+              p.user-loged-selected {
+                font-size: 18px;
+                color: #15141f;
+                margin-top: 8px;
+                font-weight: 600
+              }
+            }
+          }
+
+          li {
+            width: 10%;
+
+            span {
+              margin-right: 8px;
+            }
+          }
+        }
         
-        .logo {
-          max-width: 100px;
+        .logo-container {
+          width: 39%;
+          border-right: 2px solid #f2f6f9;
+          margin-right: 30px;
+
+          .logo {
+            float: left;
+            max-width: 100px;
+          }
         }
       }
     }

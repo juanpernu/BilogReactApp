@@ -19,6 +19,9 @@ class Sidebar extends React.Component {
 
   onChange(date){
     this.setState({ date })
+    /**
+     * @todo acá hay que ejecutar el servicio que busca la agenda del dia seleccionado 
+     */
   }
 
   render() {
@@ -29,6 +32,7 @@ class Sidebar extends React.Component {
       <Calendar
         onChange={this.onChange}
         value={this.state.date}
+        locale="es"
       />
     </div>
     )

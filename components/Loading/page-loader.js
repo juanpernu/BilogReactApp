@@ -6,12 +6,12 @@ import NProgress from 'nprogress'
 // **
 import "./page-loader.scss"
 
-NProgress.configure({ showSpinner: false })
+export default PageLoader = () => {
+  NProgress.configure({ showSpinner: false })
 
-Router.onRouteChangeStart = () => {
-  NProgress.start()
+  Router.onRouteChangeStart = () => {
+    NProgress.start()
+  }
+  Router.onRouteChangeComplete = () => NProgress.done()
+  Router.onRouteChangeError = () => NProgress.done()
 }
-Router.onRouteChangeComplete = () => NProgress.done()
-Router.onRouteChangeError = () => NProgress.done()
-
-export default PageLoader
