@@ -1,6 +1,7 @@
 import React from 'react'
-import Calendar from 'react-calendar/dist/entry.nostyle'
-import './calendar.scss'
+import Link from '../Link/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAddressBook, faUserFriends } from '@fortawesome/free-solid-svg-icons'
 
 // **
 // import styles
@@ -10,31 +11,14 @@ import "./sidebar.scss"
 class Sidebar extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      date: new Date()
-    }
-    this.onChange = this.onChange.bind(this)
-
-  }
-
-  onChange(date){
-    this.setState({ date })
-    /**
-     * @todo acá hay que ejecutar el servicio que busca la agenda del dia seleccionado 
-     */
   }
 
   render() {
     return(
       <div className='sidebar'>
-      <h2>Bienvenido a tu agenda, Juan</h2>
-      <p>Acá vas a poder gestionar todos tus turnos.</p>
-      <Calendar
-        onChange={this.onChange}
-        value={this.state.date}
-        locale="es"
-      />
-    </div>
+        <Link href='/pacientes'><FontAwesomeIcon size='1x' icon={faUserFriends} /><span>Pacientes</span></Link>
+        <Link href='/agenda'><FontAwesomeIcon size='1x' icon={faAddressBook} /><span>Agenda</span></Link>
+      </div>
     )
   }
 }

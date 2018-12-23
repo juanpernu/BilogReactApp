@@ -29,21 +29,27 @@ export default class PermisosService {
    * @returns { *|Promise.<T> }
    */
   static handlePermisos(permisos) {
-    permisos.response.usuario.listaPermisos.map((permiso) => {
+    permisos.response.usuario.permisos.map((permiso) => {
       const navigationItemSistema = permiso.idProcesoNavigation.itemSistema
       const navigationOpcion = permiso.idProcesoNavigation.opcion
 
       if(
         navigationItemSistema === 'Agenda Turnos' &&
-        navigationOpcion === 'Agenda Turnos') {
-          console.log('tiene agenda permiso')
-          return Router.push('/agenda')
-        } else if(
-          navigationItemSistema === 'Pacientes' &&
-          navigationOpcion === 'Pacientes'
-        ) {
-          console.log('tiene permiso para pacientes')
-        }
+        navigationOpcion === 'Agenda Turnos'
+      ){
+        console.log('tiene agenda permiso')
+        Router.push('/agenda')
+        return
+      }
+
+      // if(
+      //   navigationItemSistema === 'Pacientes' &&
+      //   navigationOpcion === 'Pacientes'
+      // ){
+      //   console.log('tiene permiso para pacientes')
+      //   Router.push('/pacientes')
+      //   return
+      // }
     })
     
    }

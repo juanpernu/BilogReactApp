@@ -7,7 +7,12 @@
     border-radius: 4px;
     padding: 18px 30px;
     width: 70%;
-    margin: 250px auto 0;
+    margin: 90px auto 0;
+
+    &-sticky {
+      position: relative;
+      top: 0;
+    }
 
     .search_bar {
       margin: 0;

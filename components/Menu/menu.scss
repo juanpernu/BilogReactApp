@@ -25,8 +25,7 @@
     .menu-container {
       width: 100%;
       margin: 0 auto;
-      padding-left: 6rem;
-      padding-right: 6rem;
+      padding: 0 2rem;
 
       a:hover {
         cursor: pointer
@@ -82,8 +81,19 @@
   
             &-loged {
               margin: 0 30px;
+              display: flex;
+              align-items: center;
+
+              .float_left {
+                float: left;
+              }
+
+              i.arrow-icon {
+                cursor: pointer;
+                margin: 0 20px;
+              }
   
-              p {
+              &-greetings {
                 font-size: 16px;
                 color: #b2b4b7;
                 margin: 0;
@@ -92,7 +102,7 @@
               p.user-loged-selected {
                 font-size: 18px;
                 color: #15141f;
-                margin-top: 8px;
+                margin: 8px 0 0;
                 font-weight: 600
               }
             }

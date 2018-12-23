@@ -1,0 +1,27 @@
+.dropdown {
+ position: fixed;
+ background: #fff;
+ width: 360px;
+ left: 30%;
+ top: 80px;
+ box-sizing: content-box;
+ box-shadow: 0 20px 40px 0 rgba(16, 36, 94, 0.1);
+ transition: 2s;
+
+ &.open {
+  display: block;
+  height: auto;
+}
+
+ &.close {
+   display: none;
+   height: 0;
+ }
+
+ .user-list-item {
+   margin: 0;
+   padding: 20px 30px;
+   color: #15141f;
+   border-bottom: 1px solid #f2f6f9;
+ }
+}
