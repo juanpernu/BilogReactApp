@@ -1,6 +1,6 @@
-import axios from 'axios'
-import Router from 'next/router'
-import config from '../configs'
+import axios from 'axios';
+import Router from 'next/router';
+import config from '../configs';
 
 const restClient = axios.create({
   baseURL: config.baseURL,
@@ -19,7 +19,7 @@ export default class PermisosService {
       .then(response => { return response.data })
       .catch((e) => {
         console.log(('Error en ObtenerPermisos ', e))
-        return e;
+        throw new Error(e);
       })
    }
 

@@ -1,9 +1,9 @@
-import React from 'react'
-import Router from 'next/router'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPowerOff, faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import AuthService from '../../services/authService'
-import Dropdown from '../Dropdown/dropdown'
+import React from 'react';
+import Router from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPowerOff, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import AuthService from '../../services/authService';
+import Dropdown from '../Dropdown';
 
 const auth = new AuthService('http://localhost:3000')
 

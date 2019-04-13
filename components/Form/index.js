@@ -1,15 +1,15 @@
-import React from 'react'
-import Link from 'next/link'
-import Router from 'next/router'
-import AuthService from '../../services/authService'
-import permisosService from '../../services/permisosService'
+import React from 'react';
+import Link from 'next/link';
+import Router from 'next/router';
+import AuthService from '../../services/authService';
+import permisosService from '../../services/permisosService';
 
-const auth = new AuthService('http://localhost:3000')
+const auth = new AuthService('http://localhost:3000');
 
 // **
 // import styles
 // **
-import "./form.scss"
+import "./form.scss";
 
 class Form extends React.Component {
   constructor (props) {
@@ -20,11 +20,12 @@ class Form extends React.Component {
         password: '',
         activeClass: ''
     }
-    this.handleUserChange = this.handleUserChange.bind(this)
-    this.handleBilogUserChange = this.handleBilogUserChange.bind(this)
-    this.handlePasswordChange = this.handlePasswordChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleOnKeyDown = this.handleOnKeyDown.bind(this)
+
+    this.handleUserChange = this.handleUserChange.bind(this);
+    this.handleBilogUserChange = this.handleBilogUserChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOnKeyDown = this.handleOnKeyDown.bind(this);
   }
 
   // componentDidMount (ctx) {
@@ -61,12 +62,12 @@ class Form extends React.Component {
 
   handleOnKeyDown(evt){
     if(evt.keyCode == 13 && evt.shiftKey == false) {
-      handleSubmit()
+      handleSubmit();
     }
   }
 
   async handleSubmit(evt, ctx) {
-    evt.preventDefault()
+    evt.preventDefault();
 
     await auth.login(
       ctx,
@@ -76,7 +77,7 @@ class Form extends React.Component {
       )
       .then(res => {
         if (!res === false) {
-          permisosService.handlePermisos(res)
+          permisosService.handlePermisos(res);
         } else {
           this.setState({
             activeClass: 'active'
