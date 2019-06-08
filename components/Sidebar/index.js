@@ -1,7 +1,5 @@
 import React from 'react'
-import Link from '../Link/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAddressBook, faUserFriends } from '@fortawesome/free-solid-svg-icons'
+import Link from '../Link'
 
 // **
 // import styles
@@ -16,8 +14,7 @@ class Sidebar extends React.Component {
   render() {
     return(
       <div className='sidebar'>
-        <Link href='/pacientes'><FontAwesomeIcon size='1x' icon={faUserFriends} /><span>Pacientes</span></Link>
-        <Link href='/agenda'><FontAwesomeIcon size='1x' icon={faAddressBook} /><span>Agenda</span></Link>
+        
       </div>
     )
   }

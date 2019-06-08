@@ -4,7 +4,7 @@
   "description": "Bilog react App",
   "main": "index.js",
   "scripts": {
-    "dev": "node ssr-server.js",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -33,7 +33,7 @@
     "@zeit/next-sass": "^1.0.1",
     "axios": "0.19.0",
     "express": "4.16.4",
-    "next": "^7.0.2",
+    "next": "7.0.3",
     "node-sass": "^4.9.4",
     "nookies": "1.1.2",
     "nprogress": "0.2.0",

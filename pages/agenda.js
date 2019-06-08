@@ -1,8 +1,8 @@
 import React from 'react'
-import Layout from '../components/Layout/layout'
-import Sidebar from '../components/Sidebar/sidebar'
-import Menu from '../components/Menu/menu'
-import Grid from '../components/Grid/grid'
+import Layout from '../components/Layout'
+import Sidebar from '../components/Sidebar'
+import Menu from '../components/Menu'
+import Grid from '../components/Grid'
 
 // **
 // import styles
