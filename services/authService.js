@@ -1,14 +1,14 @@
-import nookies from 'nookies'
-import permisosService from './permisosService'
+import nookies from 'nookies';
+import permisosService from './permisosService';
 
 export default class AuthService {
   constructor(domain) {
-    this.domain = domain || 'http://localhost:3000'
-    this.login = this.login.bind(this)
+    this.domain = domain || 'http://localhost:3000';
+    this.login = this.login.bind(this);
   }
 
   /**
-   * Method for get a pacients data
+   * Method to login user
    * @param ctx ctx param is only used to set Next JS context
    * @param bilogUser
    * @param user
@@ -25,16 +25,17 @@ export default class AuthService {
       }
     }
 
-    return permisosService.obtenerPermisos(userLoginData)
+    return await permisosService.obtenerPermisos(userLoginData)
     .then(res => {
-      this.setLoginData(ctx, bilogUser, user, password)
       console.log(res)
 
       if (res.resultado_Ok === true) {
-        return Promise.resolve(res)
+        this.setLoginData(ctx, bilogUser, user, password);
+        // return Promise.resolve(res);
+        return res;
       } else {
         return false
-      }
+      };
     })
   }
 
@@ -59,10 +60,10 @@ export default class AuthService {
    */
   setLoginData(ctx, bilogUser, user, password){
     // Saves user login data to cookies
-    nookies.set(ctx, 'WebUser', bilogUser)
-    nookies.set(ctx, 'User', user)
-    nookies.set(ctx, 'Password', password)
-    console.log('cookies setted')
+    nookies.set(ctx, 'WebUser', bilogUser);
+    nookies.set(ctx, 'User', user);
+    nookies.set(ctx, 'Password', password);
+    console.log('cookies setted');
   }
 
   /**
