@@ -1,6 +1,6 @@
 import React from 'react'
 import PacienteService from '../../services/pacienteService'
-import Suggestions from '../Suggestions/suggestions'
+import Suggestions from '../Suggestions'
 
 // **
 // import styles
